@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { SessionGuard } from './guards/session.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'map',
-    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule)
+    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule),
+    canActivate: [SessionGuard]
   },
   {
     path: 'hello',

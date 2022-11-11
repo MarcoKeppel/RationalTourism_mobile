@@ -18,7 +18,7 @@
 
     <p id="hello">Hello{{ username ? " " + username : "" }}!</p>
 
-    <ion-button fill="outline">Let's play!</ion-button>
+    <ion-button [disabled]="!username" fill="outline" (click)="btnPlay()">Let's play!</ion-button>
 
   </div>
 

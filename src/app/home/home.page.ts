@@ -9,8 +9,6 @@ import { BackendService } from '../services/backend.service';
 })
 export class HomePage implements OnInit {
 
-  username: string;
-
   constructor(
     private router: Router,
     private backendService: BackendService,
@@ -18,15 +16,12 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     
+    this.backendService.endSession().subscribe();   // TODO: this is only to make debugging easier
+
     this.backendService.getSessionToken().subscribe(
       (data) => {
         console.log(data);
-        if (data) {
-          this.router.navigate(["map"]);
-        }
-        else {
-          // TODO display error (dedicated page?)
-        }
+        this.router.navigate(["/", "hello"]);
       },
       (error) => {
 
