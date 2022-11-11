@@ -1,0 +1,7 @@
+{
+  "name": "RationalTourism_frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
