@@ -1,0 +1,25 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Let's play!
+    </ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true">
+
+  <div id="container" class="ion-padding">
+    
+    <p id="message">How do you want to be called?</p>
+
+    <ion-item>
+      <ion-input [(ngModel)]="username"></ion-input>
+    </ion-item>
+
+    <p id="hello">Hello{{ username ? " " + username : "" }}!</p>
+
+    <ion-button fill="outline">Let's play!</ion-button>
+
+  </div>
+
+</ion-content>
