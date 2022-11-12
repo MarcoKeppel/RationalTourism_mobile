@@ -10,6 +10,7 @@ export class BackendService {
 
   public token: string;
   public username: string;
+  public totem: { lat: number, lng: number } = { lat: 51.0, lng: 0.0 };
 
   constructor(
     private httpClient: HttpClient,
@@ -24,6 +25,7 @@ export class BackendService {
           console.log(data);
           if (data.result) {
             this.token = data.token;
+            this.totem = data.totem;
             observer.next("tokengoeshere");
           }
           else {
@@ -44,6 +46,11 @@ export class BackendService {
 
     this.username = username;
     return this.httpClient.get<any>(`${environment.BACKEND_URL}/setUsername?username=${username}&token=${this.token}`);
+  }
+
+  sendPosition(position) {
+
+    return this.httpClient.get<any>(`${environment.BACKEND_URL}/submitPhaseOne?token=${this.token}&lat=${position.lat}&lng=${position.lng}`)
   }
 
   endSession() {

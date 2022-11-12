@@ -27,12 +27,58 @@ export class MapPage implements AfterViewInit {
 
     this.getGoogleMaps().then(googleMap => {
       
-      const center: google.maps.LatLngLiteral = {lat: 46, lng: 11}; // TODO coordinates of totem/screen
+      const center: google.maps.LatLngLiteral = this.backendService.totem;
 
       this.map = new googleMap.Map(document.getElementById("map") as HTMLElement, {
         center,
-        zoom: 8,
+        zoom: 12,
         disableDefaultUI: true,
+        styles: [
+          {
+            "featureType": "administrative",
+            "elementType": "geometry",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "poi",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "road",
+            "elementType": "labels.icon",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          },
+          {
+            "featureType": "transit",
+            "stylers": [
+              {
+                "visibility": "off"
+              }
+            ]
+          }
+        ]
+      });
+
+      new googleMap.Marker({
+        position: center,
+        map: this.map,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 10,
+          strokeColor: "red"
+        },
       });
 
       this.clickListener = this.map.addListener('click', event => {
@@ -51,7 +97,7 @@ export class MapPage implements AfterViewInit {
         this.locationMarker = new googleMap.Marker({
           position: this.selectedCoords,
           map: this.map,
-          animation: "drop"
+          draggable: true,
         });
       });
     });
@@ -86,8 +132,11 @@ export class MapPage implements AfterViewInit {
   }
 
   fabSelectLocation() {
-
+    
+    this.selectedCoords = { lat: this.locationMarker.getPosition().lat(), lng: this.locationMarker.getPosition().lng() };
     console.log(this.selectedCoords);
+
+    this.backendService.sendPosition(this.selectedCoords).subscribe();
   }
 
   btnCloseSession() {
