@@ -1,0 +1,11 @@
+<div id="map">
+
+</div>
+
+<ion-fab slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button
+    (click)="fabSelectLocation()"
+    [disabled]="!locationMarker">
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

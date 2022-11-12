@@ -1,0 +1,9 @@
+<div *ngIf="quiz" class="ion-padding">
+
+  <h1>{{ quiz.content.question }}</h1>
+
+  <ion-button *ngFor="let a of quiz.content.answer" (click)="btnAnswer(a.points)" fill="outline" expand="block" class="ion-margin-vertical">
+    {{ a.text }}
+  </ion-button>
+
+</div>

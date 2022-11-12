@@ -16,17 +16,21 @@ export class HomePage implements OnInit {
 
   ngOnInit(): void {
     
-    this.backendService.endSession().subscribe();   // TODO: this is only to make debugging easier
+    this.backendService.endSession().subscribe(
+      data => {
 
-    this.backendService.getSessionToken().subscribe(
-      (data) => {
-        console.log(data);
-        this.router.navigate(["/", "hello"]);
-      },
-      (error) => {
-
+        this.backendService.getSessionToken().subscribe(
+          (data) => {
+            console.log(data);
+            this.router.navigate(["/", "hello"]);
+          },
+          (error) => {
+    
+          }
+        );
       }
-    );
+    );   // TODO: this is only to make debugging easier
+
   }
 
 }

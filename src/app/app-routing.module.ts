@@ -13,13 +13,13 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'map',
-    loadChildren: () => import('./map/map.module').then( m => m.MapPageModule),
-    // canActivate: [SessionGuard]    // TODO: activate guard (deactivated for debugging purposes)
-  },
-  {
     path: 'hello',
     loadChildren: () => import('./hello/hello.module').then( m => m.HelloPageModule)
+  },
+  {
+    path: 'game',
+    loadChildren: () => import('./game/game.module').then( m => m.GamePageModule),
+    canActivate: [SessionGuard]    // TODO: activate guard (deactivated for debugging purposes)
   },
 ];
 

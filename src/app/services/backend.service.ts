@@ -50,7 +50,27 @@ export class BackendService {
 
   sendPosition(position) {
 
-    return this.httpClient.get<any>(`${environment.BACKEND_URL}/submitPhaseOne?token=${this.token}&lat=${position.lat}&lng=${position.lng}`)
+    return this.httpClient.get<any>(`${environment.BACKEND_URL}/submitPhaseOne?token=${this.token}&lat=${position.lat}&lng=${position.lng}`);
+  }
+
+  getQuiz() {
+
+    return this.httpClient.get<any>(`${environment.BACKEND_URL}/phaseTwo`);
+  }
+
+  sendQuiz(score: number) {
+
+    return this.httpClient.get<any>(`${environment.BACKEND_URL}/submitPhaseTwo?token=${this.token}&score=${score}`);
+  }
+
+  getQuiz2() {
+
+    return this.httpClient.get<any>(`${environment.BACKEND_URL}/phaseThree`);
+  }
+
+  sendQuiz2(score: number) {
+
+    return this.httpClient.get<any>(`${environment.BACKEND_URL}/submitPhaseThree?token=${this.token}&score=${score}`);
   }
 
   endSession() {

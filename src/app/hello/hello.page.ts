@@ -33,7 +33,7 @@ export class HelloPage implements OnInit {
         console.log("User registered");
         
         loading.dismiss();
-        this.router.navigate(["/", "map"]);
+        this.router.navigate(["/", "game"]);
       }
     );
   }

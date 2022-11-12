@@ -1,0 +1,32 @@
+<div class="ion-padding">
+
+  <p *ngIf="type === 'partial' || type === 'partial2'">
+    You scored {{ points }} points!
+  </p>
+
+  <p *ngIf="type === 'total'">
+    Your total score is {{ points }} points.
+  </p>
+
+</div>
+
+<ion-fab *ngIf="type === 'partial'" slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button
+    [routerLink]='["/", "game", "quiz"]'>
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab *ngIf="type === 'partial2'" slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button
+    [routerLink]='["/", "game", "quiz2"]'>
+    <ion-icon name="checkmark-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+<ion-fab *ngIf="type === 'total'" slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab-button
+    (click)="fabExit()">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
