@@ -10,21 +10,21 @@
 
 </div>
 
-<ion-fab *ngIf="type === 'partial'" slot="fixed" vertical="bottom" horizontal="end">
+<ion-fab *ngIf="type === 'partial'" slot="fixed" vertical="bottom" horizontal="end" class="ion-margin">
   <ion-fab-button
     [routerLink]='["/", "game", "quiz"]'>
     <ion-icon name="checkmark-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>
 
-<ion-fab *ngIf="type === 'partial2'" slot="fixed" vertical="bottom" horizontal="end">
+<ion-fab *ngIf="type === 'partial2'" slot="fixed" vertical="bottom" horizontal="end" class="ion-margin">
   <ion-fab-button
     [routerLink]='["/", "game", "quiz2"]'>
     <ion-icon name="checkmark-outline"></ion-icon>
   </ion-fab-button>
 </ion-fab>
 
-<ion-fab *ngIf="type === 'total'" slot="fixed" vertical="bottom" horizontal="end">
+<ion-fab *ngIf="type === 'total'" slot="fixed" vertical="bottom" horizontal="end" class="ion-margin">
   <ion-fab-button
     (click)="fabExit()">
     <ion-icon name="close-outline"></ion-icon>

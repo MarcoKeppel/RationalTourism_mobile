@@ -2,8 +2,10 @@
 
   <h1>{{ quiz.content.question }}</h1>
 
-  <ion-button *ngFor="let a of quiz.content.answer" (click)="btnAnswer(a.points)" fill="outline" expand="block" class="ion-margin-vertical">
-    {{ a.text }}
-  </ion-button>
+  <div class="btn-container">
+    <ion-button *ngFor="let a of quiz.content.answer" (click)="btnAnswer(a.points)" fill="outline" expand="block" class="ion-margin-vertical">
+      {{ a.text }}
+    </ion-button>
+  </div>
 
 </div>

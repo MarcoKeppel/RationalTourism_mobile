@@ -25,10 +25,11 @@ export class HomePage implements OnInit {
             this.router.navigate(["/", "hello"]);
           },
           (error) => {
-    
+            alert(error);
           }
         );
-      }
+      },
+      error => { alert("sss"); }
     );   // TODO: this is only to make debugging easier
 
   }

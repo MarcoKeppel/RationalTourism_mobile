@@ -77,10 +77,14 @@ export class MapComponent implements AfterViewInit {
         position: center,
         map: this.map,
         icon: {
-          path: google.maps.SymbolPath.CIRCLE,
-          scale: 10,
-          strokeColor: "red"
-        },
+          url: "../../assets/totem.png",
+          scaledSize: new google.maps.Size(35, 35)
+        }
+        // icon: {
+        //   path: google.maps.SymbolPath.CIRCLE,
+        //   scale: 10,
+        //   strokeColor: "red"
+        // },
       });
 
       this.clickListener = this.map.addListener('click', event => {
